@@ -1,0 +1,34 @@
+﻿
+
+@using DTO.Model;
+
+@{
+    @model Person
+
+
+    ViewBag.Title = "PersonCreation";
+
+
+    if (IsPost)
+    {
+        string personName = Request.Form["m.name"];
+
+
+        <text>
+            Du har skabt en person. Tillykke.
+        </text>
+    }
+}
+
+
+<h2>PersonCreation</h2>
+
+@using (Html.BeginForm("AddPerson", "Person"))
+{
+
+    @Html.EditorFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+    
+
+    <button type="submit">Submit</button>
+}
