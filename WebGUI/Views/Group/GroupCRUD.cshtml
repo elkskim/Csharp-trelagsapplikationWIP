@@ -1,7 +1,60 @@
-﻿
+﻿@using DTO.Model;
+@using BusinessLogic.BLL;
+
 @{
     ViewBag.Title = "GroupCRUD";
+
+    var group = Request.Form["Groups"];
+
+    @model Group
+
+    var groupBLL = new GroupBLL();
+    var personBLL = new PersonBLL();
+
+    if (IsPost)
+    {
+
+
+        <text>
+            Du har skabt en gruppe. Tillykke.
+        </text>
+    }
 }
 
 <h2>GroupCRUD</h2>
+
+
+@using (Html.BeginForm("AddGroup", "Group"))
+{
+
+    @Html.EditorFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+
+
+    <button type="submit">Submit</button>
+}
+
+
+
+<select  name="Groups" size="@groupBLL.getGroupRange()">
+
+    @for (int i = 1; i <= groupBLL.getGroupRange(); i++)
+            {
+    <option value="@groupBLL.getGroup(i)">
+       ID: @groupBLL.getGroup(i).GroupId - Name: @groupBLL.getGroup(i).Name
+    </option>
+            }
+</select>
+
+<select name="Persons" size="@personBLL.getPersonRange()">
+    @for (int i = 1; i <= personBLL.getPersonRange(); i++)
+            {
+                <option value="@personBLL.getPerson(i)">
+                    ID: @personBLL.getPerson(i).PersonId - Name: @personBLL.getPerson(i).Name
+                </option>
+            }
+</select>
+
+
+
 

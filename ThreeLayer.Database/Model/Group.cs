@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ThreeLayer.Database.Model
 {
-    internal class Group
+    public class Group
     {
         public int GroupId { get; set; }
         public string Name { get; set; }
         public List<Person> Persons { get; set; } = new List<Person>();
+
 
         public Group(int groupId, string name)
         {

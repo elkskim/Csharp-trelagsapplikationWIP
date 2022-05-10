@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ThreeLayer.Database.Model
 {
 
-    internal class Person
+    public class Person
     {
         public int PersonId { get; set; }
         public string Name { get; set; }

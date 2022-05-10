@@ -8,18 +8,23 @@ using ThreeLayer.Database.Repositories;
 
 namespace BusinessLogic.BLL
 {
-    internal class GroupBLL
+    public class GroupBLL
     {
 
-        public Person getPerson(int id)
+
+        public int getGroupRange()
+        {
+            return ThreeLayer.Database.Repositories.GroupRepository.getGroupRange();
+        }
+        public Group getGroup(int id)
         {
             if (id <= 0) throw new IndexOutOfRangeException();
-            return ThreeLayer.Database.Repositories.PersonRepository.getPerson(id);
+            return ThreeLayer.Database.Repositories.GroupRepository.getGroup(id);
         }
 
-        public void AddPerson(Person person)
+        public void AddGroup(Group group)
         {
-            ThreeLayer.Database.Repositories.PersonRepository.AddPerson(person);
+            ThreeLayer.Database.Repositories.GroupRepository.AddGroup(group);
         }
     }
 }

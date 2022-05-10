@@ -12,6 +12,14 @@ namespace ThreeLayer.Database.Repositories
     public class PersonRepository
     {
 
+        
+        public static int getPersonRange()
+        {
+            using (PersonContext context = new PersonContext())
+            {
+                return context.Persons.Count();
+            }
+        }
 
         public static Person getPerson(int id)
         {
@@ -28,6 +36,15 @@ namespace ThreeLayer.Database.Repositories
             using (PersonContext context = new PersonContext())
             {
                 context.Persons.Add(PersonMapper.Map(person));
+                context.SaveChanges();
+            }
+        }
+
+        public static void RemovePerson(Person person)
+        {
+            using (PersonContext context = new PersonContext())
+            {
+                context.Persons.Remove(PersonMapper.Map(person));
                 context.SaveChanges();
             }
         }

@@ -20,5 +20,15 @@ namespace BusinessLogic.BLL
 
             ThreeLayer.Database.Repositories.PersonRepository.AddPerson(person);
         }
+
+        public int getPersonRange()
+        {
+            return ThreeLayer.Database.Repositories.PersonRepository.getPersonRange();
+        }
+
+        public void RemovePerson(Person person)
+        {
+            ThreeLayer.Database.Repositories.PersonRepository.RemovePerson(person);
+        }
     }
 }

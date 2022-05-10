@@ -11,6 +11,14 @@ namespace ThreeLayer.Database.Repositories
 {
     public class GroupRepository
     {
+
+        public static int getGroupRange()
+        {
+            using (PersonContext context = new PersonContext())
+            {
+                return context.Groups.Count();
+            }
+        }
         public static Group getGroup(int id)
         {
             using (PersonContext context = new PersonContext())

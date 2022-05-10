@@ -1,9 +1,12 @@
 ﻿
 
 @using DTO.Model;
+@using BusinessLogic.BLL
 
 @{
     @model Person
+
+    var personBLL = new PersonBLL();
 
 
     ViewBag.Title = "PersonCreation";
@@ -32,3 +35,48 @@
 
     <button type="submit">Submit</button>
 }
+
+@using (Html.BeginForm("RemovePerson", "Person"))
+            {
+
+
+<button type="submit">Remove</button>
+
+            }
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayName("ID")
+        </th>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        <th>
+            @Html.DisplayName("Actions")
+        </th>
+    </tr>
+    @for (int i = 1; i <= @personBLL.getPersonRange(); i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(item => personBLL.getPerson(i).PersonId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(item => personBLL.getPerson(i).Name)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("RemovePerson", "Person"))
+                        {
+
+                            
+                            <button type="submit">Remove</button>
+
+                        }
+                    </td>
+                </tr>
+            }
+
+</table>
+ 

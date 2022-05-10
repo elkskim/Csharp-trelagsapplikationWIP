@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGUI", "WebGUI\WebGUI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{171252F5-5E3C-4888-AE9E-D15500114323}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGUI", "WpfGUI\WpfGUI.csproj", "{F1BEA5D2-977D-4186-90CC-E4136152D15A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{171252F5-5E3C-4888-AE9E-D15500114323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{171252F5-5E3C-4888-AE9E-D15500114323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{171252F5-5E3C-4888-AE9E-D15500114323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1BEA5D2-977D-4186-90CC-E4136152D15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1BEA5D2-977D-4186-90CC-E4136152D15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1BEA5D2-977D-4186-90CC-E4136152D15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1BEA5D2-977D-4186-90CC-E4136152D15A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

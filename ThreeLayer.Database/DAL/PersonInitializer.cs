@@ -16,7 +16,7 @@ namespace ThreeLayer.Database.DAL
             context.Persons.Add(new Model.Person("Skrrrrt"));
 
             Model.Group group = new Model.Group("The Groupz");
-            group.Persons.Add(context.Persons.Find(3));
+            group.Persons.Add(context.Persons.Find(2));
             context.Groups.Add(group);
 
 

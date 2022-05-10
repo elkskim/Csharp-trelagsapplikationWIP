@@ -27,5 +27,12 @@ namespace WebGUI.Controllers
             return View("PersonCreation");
         }
 
+        public ActionResult RemovePerson(Person person)
+        {
+            PersonBLL personBLL = new PersonBLL();
+            personBLL.RemovePerson(person);
+            return View("PersonCreation");
+        }
+
     }
 }

@@ -9,11 +9,10 @@ using ThreeLayer.Database.Model;
 
 namespace ThreeLayer.Database.DAL
 {
-    internal class PersonContext : DbContext
+    public class PersonContext : DbContext
     {
         public PersonContext() : base("Persons")
         {
-
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Group> Groups { get; set; }

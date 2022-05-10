@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DTO.Model;
+using BusinessLogic.BLL;
 
 namespace WebGUI.Controllers
 {
@@ -14,5 +16,17 @@ namespace WebGUI.Controllers
 
             return View();
         }
+
+        [HttpPost]
+
+        public ActionResult AddGroup(Group group)
+        {
+            GroupBLL groupBLL = new GroupBLL();
+            groupBLL.AddGroup(group);
+            return View("GroupCRUD");
+        }
+
+
+        
     }
 }
