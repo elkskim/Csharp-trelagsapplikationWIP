@@ -53,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.8\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -96,6 +97,7 @@
   <ItemGroup>
     <Compile Include="DAL\PersonContext.cs" />
     <Compile Include="DAL\PersonInitializer.cs" />
+    <Compile Include="EntityFrameworkSQLServerImporter.cs" />
     <Compile Include="Mappers\GroupMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
     <Compile Include="Migrations\202205040929106_Lrs.cs" />
@@ -137,6 +139,9 @@
     <EmbeddedResource Include="Migrations\202205060749518_Fourth.resx">
       <DependentUpon>202205060749518_Fourth.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

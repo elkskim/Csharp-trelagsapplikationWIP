@@ -26,9 +26,9 @@ namespace BusinessLogic.BLL
             return ThreeLayer.Database.Repositories.PersonRepository.getPersonRange();
         }
 
-        public void RemovePerson(Person person)
+        public void RemovePerson(int id)
         {
-            ThreeLayer.Database.Repositories.PersonRepository.RemovePerson(person);
+            ThreeLayer.Database.Repositories.PersonRepository.RemovePerson(id);
         }
     }
 }

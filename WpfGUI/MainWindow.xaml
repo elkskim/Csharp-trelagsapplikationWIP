@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Se Personer" HorizontalAlignment="Left" Margin="70,292,0,0" VerticalAlignment="Top"/>
+        <ListBox d:ItemsSource="{Binding}" Name="PersonBox" Margin="30,48,623,169"/>
+        <ListBox d:ItemsSource="{Binding}" Name="GruppeBox" Margin="318,42,338,179" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.335"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <Button Content="Se Grupper" HorizontalAlignment="Center" Margin="0,287,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
