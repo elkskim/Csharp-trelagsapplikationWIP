@@ -22,9 +22,19 @@ namespace WebGUI.Controllers
 
         public ActionResult AddPerson(Person person)
         {
-            PersonBLL personBLL = new PersonBLL();
-            personBLL.AddPerson(person);
-            return View("PersonCreation");
+            if (person == null)
+            {
+                return View("PersonCreation", null);
+            }
+            else if (ModelState.IsValid)
+            {
+                PersonBLL personBLL = new PersonBLL();
+                personBLL.AddPerson(person);
+                return View("PersonCreation");
+            } else
+            {
+                return View("PersonCreation");
+            }
         }
 
         public ActionResult RemovePerson(int id)

@@ -11,7 +11,10 @@ namespace BusinessLogic.BLL
     public class GroupBLL
     {
 
-
+        public List<Group> GetGroups()
+        {
+            return ThreeLayer.Database.Repositories.GroupRepository.GetGroups();
+        }
         public int getGroupRange()
         {
             return ThreeLayer.Database.Repositories.GroupRepository.getGroupRange();

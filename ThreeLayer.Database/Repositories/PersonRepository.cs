@@ -15,7 +15,16 @@ namespace ThreeLayer.Database.Repositories
     public class PersonRepository
     {
 
-        
+        public static List<Person> GetPeople()
+        {
+            using (PersonContext context = new PersonContext())
+            {
+                List<Person> people = new List<Person>();
+                context.Persons.ToList().ForEach(person => people.Add(PersonMapper.Map(person)));
+                return people;
+            }
+
+        }
         public static int getPersonRange()
         {
             using (PersonContext context = new PersonContext())
@@ -28,11 +37,7 @@ namespace ThreeLayer.Database.Repositories
         {
             using (PersonContext context = new PersonContext())
             {
-                // overvej at throw exception, nullpointer inc
-
-                //Fordi jeg itererer igennem mine personer igennem PersonBLL i PersonCreation-view, støder jeg ind i problemer når jeg fjerner et element.
-                //Det kan omgåes ved at indsætte en dummy person når jeg så bruger den her funktion til at populerer mit table, men det skaber ragnarok i databasen.
-                //Prøver at fikse det. 
+                
              
                     return PersonMapper.Map(context.Persons.Find(id));
                
@@ -63,29 +68,7 @@ namespace ThreeLayer.Database.Repositories
 
                 context.Persons.Remove(personFind);
                 context.SaveChanges();
-                /*
-                 if (!context.Persons.Local.Contains(personen)) 
-                 { 
-                     context.Persons.Attach(personen); 
-                 }
-                 context.Persons.Remove(personen);
-                 context.SaveChanges();
-                */
-
-
-                /*
-                context.Entry(PersonMapper.Map(person)).State = System.Data.Entity.EntityState.Deleted;
-                try
-                {
-                    context.SaveChanges();
-                }
-                catch (OptimisticConcurrencyException)
-                {
-                    context.Refresh(RefreshMode.ClientWins, PersonMapper.Map(person));
-                    context.SaveChanges();
-                }
-
-                */
+               
             }
         }
 

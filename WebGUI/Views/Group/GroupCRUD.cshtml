@@ -38,19 +38,19 @@
 
 <select  name="Groups" size="@groupBLL.getGroupRange()">
 
-    @for (int i = 1; i <= groupBLL.getGroupRange(); i++)
+    @foreach  (var e in groupBLL.GetGroups())
             {
-    <option value="@groupBLL.getGroup(i)">
-       ID: @groupBLL.getGroup(i).GroupId - Name: @groupBLL.getGroup(i).Name
+    <option value="@e">
+       ID: @e.GroupId - Name: @e.Name
     </option>
             }
 </select>
 
 <select name="Persons" size="@personBLL.getPersonRange()">
-    @for (int i = 1; i <= personBLL.getPersonRange(); i++)
+    @foreach(var e in personBLL.GetPeople())
             {
-                <option value="@personBLL.getPerson(i)">
-                    ID: @personBLL.getPerson(i).PersonId - Name: @personBLL.getPerson(i).Name
+                <option value="@e">
+                    ID: @e.PersonId - Name: @e.Name
                 </option>
             }
 </select>

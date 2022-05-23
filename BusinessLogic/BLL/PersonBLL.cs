@@ -9,6 +9,10 @@ namespace BusinessLogic.BLL
 {
     public class PersonBLL
     {
+        public List<Person> GetPeople()
+        {
+            return ThreeLayer.Database.Repositories.PersonRepository.GetPeople();
+        }
         public Person getPerson(int id)
         {
             if (id <= 0) throw new IndexOutOfRangeException();

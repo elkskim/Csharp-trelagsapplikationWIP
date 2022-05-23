@@ -12,6 +12,15 @@ namespace ThreeLayer.Database.Repositories
     public class GroupRepository
     {
 
+        public static List<Group> GetGroups()
+        {
+            using (PersonContext context = new PersonContext())
+            {
+                List<Group> groups = new List<Group>();
+                context.Groups.ToList().ForEach(group => groups.Add(GroupMapper.Map(group)));
+                return groups;
+            }
+        }
         public static int getGroupRange()
         {
             using (PersonContext context = new PersonContext())

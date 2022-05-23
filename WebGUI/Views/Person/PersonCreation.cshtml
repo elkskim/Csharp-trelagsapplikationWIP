@@ -54,23 +54,23 @@
         </th>
     </tr>
     <!-- Den her metode bruger getPerson på index for at fange et element, men getPerson kigger på PersonId, så fejler når ID ikke alle er inkrementeret med 1-->> 
-    @for (int i = 1; i <= @personBLL.getPersonRange(); i++)
+    @foreach (var e in personBLL.GetPeople())
     {
-        if (personBLL.getPerson(i).Name != null)
+        if (e.Name != null)
         {
                 <tr>
                     <td>
-                        @Html.DisplayFor(item => personBLL.getPerson(i).PersonId)
+                        @Html.DisplayFor(item => e.PersonId)
                     </td>
                     <td>
-                        @Html.DisplayFor(item => personBLL.getPerson(i).Name)
+                        @Html.DisplayFor(item => e.Name)
                     </td>
                     <td>
-                        @using (Html.BeginForm("RemovePerson", "Person", new { id = personBLL.getPerson(i).PersonId }))
+                        @using (Html.BeginForm("RemovePerson", "Person", new { id = e.PersonId }))
                         {
 
-                            <input type="hidden" value="@personBLL.getPerson(i).PersonId" />
-                            <button type="submit" value="@personBLL.getPerson(i).PersonId">Remove</button>
+                            
+                            <button type="submit" value="">Remove</button>
 
                         }
                     </td>
