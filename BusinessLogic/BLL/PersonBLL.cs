@@ -34,5 +34,10 @@ namespace BusinessLogic.BLL
         {
             ThreeLayer.Database.Repositories.PersonRepository.RemovePerson(id);
         }
+
+        public Person EditPerson(Person person)
+        {
+            return ThreeLayer.Database.Repositories.PersonRepository.EditPerson(person);
+        }
     }
 }

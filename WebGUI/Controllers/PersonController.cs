@@ -36,13 +36,21 @@ namespace WebGUI.Controllers
                 return View("PersonCreation");
             }
         }
-
+        
         public ActionResult RemovePerson(int id)
         {
             PersonBLL personBLL = new PersonBLL();
             personBLL.RemovePerson(id);
             return View("PersonCreation");
         }
+
+        public ActionResult EditPerson(Person person)
+        {
+            PersonBLL personBLL = new PersonBLL();
+            personBLL.EditPerson(person);
+            return View("PersonCreation");
+        }
+
 
     }
 }

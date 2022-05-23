@@ -25,20 +25,32 @@
 
 
 <h2>PersonCreation</h2>
-
-@using (Html.BeginForm("AddPerson", "Person"))
+@{
+    String action = "";
+}
+@if (Model == null)
 {
+    action = "AddPerson";
+}
+else
+{
+    action = "EditPerson";
+}
+
+@using (Html.BeginForm(action, "Person"))
+{
+    @Html.ValidationSummary()
 
     @Html.EditorFor(m => m.Name)
     @Html.ValidationMessageFor(m => m.Name)
-    
+
 
     <button type="submit">Submit</button>
 }
 
 
 
-            
+
 
 
 <table>
@@ -53,30 +65,35 @@
             @Html.DisplayName("Actions")
         </th>
     </tr>
-    <!-- Den her metode bruger getPerson på index for at fange et element, men getPerson kigger på PersonId, så fejler når ID ikke alle er inkrementeret med 1-->> 
+    <!-- Den her metode bruger getPerson på index for at fange et element, men getPerson kigger på PersonId, så fejler når ID ikke alle er inkrementeret med 1-->>
     @foreach (var e in personBLL.GetPeople())
     {
         if (e.Name != null)
         {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(item => e.PersonId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(item => e.Name)
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("RemovePerson", "Person", new { id = e.PersonId }))
-                        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(item => e.PersonId)
+                </td>
+                <td>
+                    @Html.DisplayFor(item => e.Name)
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemovePerson", "Person", new { id = e.PersonId }))
+                    {
 
-                            
-                            <button type="submit" value="">Remove</button>
 
-                        }
-                    </td>
-                </tr>
-        } 
-    } 
+                        <button type="submit" value="">Remove</button>
+
+                    }
+
+                    @using(Html.BeginForm("EditPerson", "Person", new {id = e.PersonId}))
+                    {
+                        <button type="submit">Edit @e.Name</button>
+                    }
+                </td>
+            </tr>
+        }
+    }
 
 </table>
- 
+
