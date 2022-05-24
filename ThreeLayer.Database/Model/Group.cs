@@ -10,7 +10,7 @@ namespace ThreeLayer.Database.Model
     {
         public int GroupId { get; set; }
         public string Name { get; set; }
-        public List<Person> Persons { get; set; } = new List<Person>();
+        public virtual List<Person> Persons { get; set; } = new List<Person>();
 
 
         public Group(int groupId, string name)

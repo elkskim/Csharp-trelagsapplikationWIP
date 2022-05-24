@@ -72,13 +72,13 @@ namespace ThreeLayer.Database.Repositories
             }
         }
 
-        public static Person EditPerson(Person person)
+        public static void EditPerson(Person person)
         {
             using (PersonContext ctx = new PersonContext())
             {
-                ctx.Persons.Find(person.PersonId).Name = person.Name;
+                ThreeLayer.Database.Model.Person oldPerson = ctx.Persons.Find(person.PersonId);
+                oldPerson.Name = person.Name;
                 ctx.SaveChanges();
-                return person;
             }
         }
 

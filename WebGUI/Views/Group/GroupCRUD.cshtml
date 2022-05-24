@@ -22,7 +22,7 @@
 }
 
 <h2>GroupCRUD</h2>
-
+<p>Lav en gruppe</p>
 
 @using (Html.BeginForm("AddGroup", "Group"))
 {
@@ -35,25 +35,32 @@
 }
 
 
+<h1>Sæt en person til en gruppe</h1>
 
-<select  name="Groups" size="@groupBLL.getGroupRange()">
+@using (Html.BeginForm("Person2Group", "Group"))
+{
+<select  name="Groups">
 
-    @foreach  (var e in groupBLL.GetGroups())
-            {
+    @foreach (var e in groupBLL.GetGroups())
+    {
     <option value="@e">
        ID: @e.GroupId - Name: @e.Name
     </option>
-            }
+    }
 </select>
 
-<select name="Persons" size="@personBLL.getPersonRange()">
-    @foreach(var e in personBLL.GetPeople())
-            {
+<select name="Persons">
+    @foreach (var e in personBLL.GetPeople())
+    {
                 <option value="@e">
                     ID: @e.PersonId - Name: @e.Name
                 </option>
-            }
+    }
 </select>
+
+<button id="Person2GroupSubmit" value="Tilføj bruger til gruppe">Tilføj bruger til gruppe</button>
+
+}
 
 
 

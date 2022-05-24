@@ -39,6 +39,10 @@ else
 
 @using (Html.BeginForm(action, "Person"))
 {
+    if (action == "EditPerson")
+                {
+                    @Html.HiddenFor(m => m.PersonId)
+                }
     @Html.ValidationSummary()
 
     @Html.EditorFor(m => m.Name)
@@ -65,7 +69,8 @@ else
             @Html.DisplayName("Actions")
         </th>
     </tr>
-    <!-- Den her metode bruger getPerson på index for at fange et element, men getPerson kigger på PersonId, så fejler når ID ikke alle er inkrementeret med 1-->>
+    <!-- Den her metode bruger getPerson på index for at fange et element, men getPerson kigger på PersonId, så fejler når ID ikke alle er inkrementeret med 1-->
+
     @foreach (var e in personBLL.GetPeople())
     {
         if (e.Name != null)
@@ -86,9 +91,9 @@ else
 
                     }
 
-                    @using(Html.BeginForm("EditPerson", "Person", new {id = e.PersonId}))
+                    @using(Html.BeginForm("GetPerson", "Person", new {id = e.PersonId}))
                     {
-                        <button type="submit">Edit @e.Name</button>
+                        <button type="submit" value="">Edit @e.Name</button>
                     }
                 </td>
             </tr>

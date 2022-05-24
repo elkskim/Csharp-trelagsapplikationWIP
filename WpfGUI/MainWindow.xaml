@@ -20,6 +20,9 @@
             </ListBox.RenderTransform>
         </ListBox>
         <Button Content="Se Grupper" HorizontalAlignment="Center" Margin="0,287,0,0" VerticalAlignment="Top"/>
+        <Button Content="Fyld personliste" Click="Button_Click" HorizontalAlignment="Left" Margin="640,254,0,0" VerticalAlignment="Top"/>
+
+
 
     </Grid>
 </Window>

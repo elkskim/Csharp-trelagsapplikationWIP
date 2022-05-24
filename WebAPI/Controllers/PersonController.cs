@@ -13,10 +13,10 @@ namespace WebAPI.Controllers
         // GET: Person
 
         [HttpGet]
-        public Person GetPerson(int id)
+        public List<Person> GetPerson()
         {
             PersonBLL bll = new PersonBLL();
-            return bll.getPerson(id);
+            return bll.GetPeople();
         }
 
 

@@ -46,5 +46,15 @@ namespace ThreeLayer.Database.Repositories
                 context.SaveChanges();
             }
         }
+
+        public static void Person2Group(Group group, Person person)
+        {
+            using (PersonContext context = new PersonContext())
+            {
+                context.Groups.Find(group.GroupId).Persons.Add(PersonMapper.Map(person));
+                
+                context.SaveChanges();
+            }
+        }
     }
 }

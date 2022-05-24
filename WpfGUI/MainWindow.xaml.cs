@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ThreeLayer.Database.DAL;
+using DTO.Model;
+using System.Text.Json;
 
 namespace WpfGUI
 {
@@ -22,17 +24,26 @@ namespace WpfGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private PersonContext context = new PersonContext();  
         public MainWindow()
         {
             InitializeComponent();
 
-            PersonContext context = new PersonContext();
 
-            context.Persons.Load();
-            context.Groups.Load();
+            
 
             PersonBox.ItemsSource = context.Persons.Local;
-            GruppeBox.ItemsSource = context.Groups.Local;
+
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            Task<string> task = client.GetStringAsync("https://localhost:44332/api/Person");
+            string results = task.Result;
+            List<Person> persons = JsonSerializer.Deserialize<List<Person>>(results);
+            GruppeBox.ItemsSource = persons;
         }
     }
 }

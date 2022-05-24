@@ -11,6 +11,7 @@ namespace ThreeLayer.Database.Model
     {
         public int PersonId { get; set; }
         public string Name { get; set; }
+        public virtual Group Group { get; set; }
 
         public Person()
         {

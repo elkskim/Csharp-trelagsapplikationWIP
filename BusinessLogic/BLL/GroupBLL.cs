@@ -29,6 +29,11 @@ namespace BusinessLogic.BLL
         {
             ThreeLayer.Database.Repositories.GroupRepository.AddGroup(group);
         }
+
+        public void Person2Group(Group group, Person person)
+        {
+            ThreeLayer.Database.Repositories.GroupRepository.Person2Group(group, person);
+        }
     }
 }
 

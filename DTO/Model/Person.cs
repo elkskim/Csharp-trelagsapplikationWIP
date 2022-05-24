@@ -9,6 +9,7 @@ namespace DTO.Model
 {
     public class Person
     {
+        public Group Group { get; set; }
         public Person()
         {
 
@@ -20,8 +21,15 @@ namespace DTO.Model
         }
 
         public int PersonId { get; set; }
+
+        public string ToString()
+        {
+            return Name + " - " + PersonId;
+        }
         
         [Required]
         public string Name { get; set; }
     }
+
+    
 }

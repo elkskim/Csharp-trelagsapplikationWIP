@@ -26,6 +26,15 @@ namespace WebGUI.Controllers
             return View("GroupCRUD");
         }
 
+        public ActionResult Person2Group(FormCollection formcollection)
+        {
+            
+            /*GroupBLL groupBLL = new GroupBLL();
+            groupBLL.Person2Group(group);*/
+            return View("GroupCRUD");
+
+        }
+
 
         
     }

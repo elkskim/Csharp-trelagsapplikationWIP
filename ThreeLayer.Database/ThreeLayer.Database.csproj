@@ -112,6 +112,10 @@
     <Compile Include="Migrations\202205060749518_Fourth.designer.cs">
       <DependentUpon>202205060749518_Fourth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205241037310_Group2Person.cs" />
+    <Compile Include="Migrations\202205241037310_Group2Person.designer.cs">
+      <DependentUpon>202205241037310_Group2Person.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Person.cs" />
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205060749518_Fourth.resx">
       <DependentUpon>202205060749518_Fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205241037310_Group2Person.resx">
+      <DependentUpon>202205241037310_Group2Person.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

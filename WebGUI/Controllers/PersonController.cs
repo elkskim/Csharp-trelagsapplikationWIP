@@ -51,6 +51,12 @@ namespace WebGUI.Controllers
             return View("PersonCreation");
         }
 
+        public ActionResult GetPerson(int id)
+        {
+            PersonBLL personBLL = new PersonBLL();
+            return View("PersonCreation", personBLL.getPerson(id));
+            
+        }
 
     }
 }
